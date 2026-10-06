@@ -1,0 +1,20 @@
+# Transport patch record
+
+`source.json` is the canonical upstream revision/hash manifest. This directory owns the imported transport; `runtime/bridge.py` and `src/` own Pi's adapter. Upstream source remains under its original MIT licenses.
+
+## Local transport changes
+
+- `directsdk.py`: use `claude-code.native_assistant` replay carriers and the `mcp__pi__` tool prefix/server; import the extracted schema/effort helpers from `portability`; accept `PI_CLAUDE_CODE_COMMAND` and `PI_CLAUDE_CODE_CONFIG_DIR` directly; expose optional native-event observers; preserve `Client.close()` as a terminal boundary for future creates.
+- `admission.py`: use a Pi-owned admission marker and expose an optional sanitized response-header observer. Keep upstream admission, cache handling and one-inference-request enforcement.
+- `directsdk_setup.py`: use Pi process configuration, telemetry policy and login hints; remove runtime reads of Hermes configuration.
+- `inert_mcp.py`: name the schema inventory `pi-inert-inventory` and identify Pi as the only tool executor.
+- `model_catalog.py`: preserve the pinned upstream catalog and model rules.
+- `portability.py`: extract the named schema sanitizer and effort helpers from the separately pinned Hermes core revision in `source.json`. No Hermes package or configuration is required at runtime.
+
+## Bundled transcript helper
+
+The build reads `transformMessages` directly from the locked Pi AI dependency. It is inlined into the generated extension, not maintained as a second implementation. Its source provenance is in `source.json` under `bundledHelper`, and its upstream MIT notice is `LICENSE.pi-ai`. Only this pure helper may be bundled; Pi supplies the host SDK modules through its extension loader.
+
+## Update procedure
+
+Retrieve the exact upstream revision recorded in `source.json`. Compare original hashes before applying the listed local patches, retaining all upstream license files. Re-run `pnpm check` and `pnpm acceptance`; qualify native CLI changes with explicit `pnpm acceptance:live` before relying on subscription access. Do not replace missing replay/cancellation proof with a model-list or sign-in check.

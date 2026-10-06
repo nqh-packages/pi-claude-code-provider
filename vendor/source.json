@@ -1,0 +1,41 @@
+{
+  "repository": "https://github.com/NousResearch/hermes-plugin-claude-subscription-directsdk",
+  "revision": "31b591fd04737a7807183f3d7f3d389b19f94687",
+  "originalSha256": {
+    "directsdk.py": "f4ee9e778300c6ea76a26f4e6ab1fff78d81bf6b4e8274394903802cb99d3efa",
+    "admission.py": "edddfa6edd89e0745d5a5684b83fdb96c0ef5daeebf297cb8e73c105b64a6d58",
+    "inert_mcp.py": "bf20a09b2358600981b115c32845ec24722cb66adfc18d247d1c35ed999a0e0a",
+    "model_catalog.py": "36341d875d2e27beaf3e9bc902900280d34eb491374e88e7877cc33a1714178e",
+    "directsdk_setup.py": "efe0de9aa8356287616eca4b3968b7a7b134745b485f2c495362df8ea5dcd30f",
+    "LICENSE": "f26e906c042707a257816cf8a0396556b596be540b8add290132b8d72c080d60"
+  },
+  "helpers": {
+    "repository": "https://github.com/NousResearch/hermes-agent",
+    "revision": "6bfb1875ee0d1a288dd7922ad9f183ac446f176b",
+    "symbols": {
+      "tools/schema_sanitizer.py": [
+        "_UNION_KEYS",
+        "_UNION_META_KEYS",
+        "_rewrite",
+        "_is_null_branch",
+        "_carry_union_meta",
+        "strip_nullable_unions"
+      ],
+      "agent/reasoning_effort.py": [
+        "EFFORT_LADDER",
+        "clamp_effort"
+      ]
+    }
+  },
+  "bundledHelper": {
+    "package": "@earendil-works/pi-ai",
+    "version": "1.0.4",
+    "repository": "https://github.com/earendil-works/pi",
+    "revision": "7c10bd4337495ee613f2224843ecdf349b80d1df",
+    "source": "packages/ai/src/api/transform-messages.ts",
+    "distributionFile": "dist/api/transform-messages.js",
+    "distributionSha256": "9d747a3d64c533f7bfaf2a66e8446dc006086559d364a09d4c51d1c8c9c332e5",
+    "license": "LICENSE.pi-ai",
+    "licenseSha256": "4f6a1985796db5225e3b1e59972bd47e07a27a0748427cb3d3c8fbf39f9311f0"
+  }
+}

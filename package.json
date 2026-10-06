@@ -1,0 +1,30 @@
+{
+  "name": "pi-claude-code-provider",
+  "version": "0.1.0",
+  "description": "Use the official Claude Code CLI as a Pi model provider while Pi owns tools and history.",
+  "type": "module",
+  "license": "MIT",
+  "keywords": ["pi-package"],
+  "files": ["dist", "runtime", "vendor", "README.md", "LICENSE"],
+  "pi": { "extensions": ["./dist/index.js"] },
+  "scripts": {
+    "check": "tsc --noEmit",
+    "build": "node scripts/build.mjs",
+    "prepack": "pnpm build",
+    "acceptance": "pnpm build && python3 acceptance/provider.py",
+    "acceptance:live": "pnpm build && python3 acceptance/provider.py --live"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-ai": "1.0.4",
+    "@earendil-works/pi-coding-agent": "1.0.4"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-ai": "1.0.4",
+    "@earendil-works/pi-coding-agent": "1.0.4",
+    "@types/node": "26.0.0",
+    "esbuild": "0.28.2",
+    "typescript": "7.0.2"
+  },
+  "engines": { "node": ">=22.19.0" },
+  "packageManager": "pnpm@12.4.1"
+}
