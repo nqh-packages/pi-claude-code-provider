@@ -110,7 +110,7 @@ const pnpmVersion = provider.packageManager.replace("pnpm@", "");
               </li>
               <li>
                 <div class="step-heading"><span class="step-number" aria-hidden="true">3</span><h3>Choose Claude Code in Pi.</h3></div>
-                <p>Open Pi, use <code>/claude-code-status</code> to check the connection, then <code>/model</code> to choose an available <code>claude-code</code> route. Installation does not send an inference request.</p>
+                <p>Open Pi, use <code>/claude-code-status</code> to check CLI sign-in, then <code>/model</code> to choose an available <code>claude-code</code> route. Installation does not send an inference request.</p>
                 <details class="collapse collapse-arrow setup-disclosure">
                   <summary class="collapse-title">Updating or removing the provider</summary>
                   <div class="collapse-content"><p>After updating your checkout, run <code>pnpm build</code> again. Pi uses that checkout directly. To remove it, run <code>pi remove /absolute/path/to/pi-claude-code-provider</code>.</p><p>For one-invocation use, configuration and verification, <a class="link" href={`${repository}#build-and-try-locally`}>read the setup guide</a>.</p></div>

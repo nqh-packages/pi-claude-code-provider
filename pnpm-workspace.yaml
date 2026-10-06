@@ -1,5 +1,6 @@
 packages:
   - .
+  - site
 allowBuilds:
   '@google/genai': false
   esbuild: false

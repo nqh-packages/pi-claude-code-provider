@@ -19,4 +19,6 @@ jobs:
         run: npm install --global pnpm@12.4.1 @earendil-works/pi-coding-agent@1.0.4 @anthropic-ai/claude-code@2.1.290
       - run: pnpm install --frozen-lockfile --ignore-scripts
       - run: pnpm check
+      - name: Build static website
+        run: pnpm --dir site build
       - run: pnpm acceptance

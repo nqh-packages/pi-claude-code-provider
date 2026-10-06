@@ -9,6 +9,7 @@ Read `README.md` for usage and runtime boundaries. Dependency versions and packa
 - `src/transcript.ts`: Pi transcript projection and persisted native replay.
 - `src/stream.ts`: assistant events, tool publication and accounting provenance.
 - `vendor/source.json`: upstream revisions, original hashes and bundled-helper provenance. Read `vendor/PATCHES.md` before changing imported transport or its build inputs; retain the upstream license notices.
+- `site/`: separate static website, not provider runtime or package content. Read `site/README.md` before preview or deployment. `PRODUCT.md` owns its story; `DESIGN.md` owns its visual direction.
 
 ## Build and verification
 

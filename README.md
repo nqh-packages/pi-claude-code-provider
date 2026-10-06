@@ -1,6 +1,6 @@
 # Claude Code provider for Pi
 
-Prefer Pi's agent interface? This experimental provider connects Pi to your existing Claude Code subscription sign-in. The official Claude Code CLI handles authentication and inference; Pi keeps its agent loop, tools, approvals, transcript and compaction.
+Use your Claude subscription in Pi instead of Claude Code's agent interface. This experimental provider runs the official Claude Code CLI underneath for authentication and inference. Pi keeps its agent loop, tools, approvals, transcript and compaction.
 
 [Website](https://pi-claude-code.ngoquochuy.com) · [Source](https://github.com/nqh-packages/pi-claude-code-provider) · [CI](https://github.com/nqh-packages/pi-claude-code-provider/actions/workflows/acceptance.yml)
 

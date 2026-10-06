@@ -3,6 +3,10 @@ dist/
 __pycache__/
 *.pyc
 .artifacts/
+.astro/
+.alchemy/
+.impeccable/sketches/
+.impeccable/questions/
 .env
 .env.local
 .env.*.local

@@ -1,0 +1,28 @@
+{
+  "name": "@pi-claude-code-provider/site",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "check": "astro check",
+    "build": "astro check && astro build",
+    "preview": "astro preview --host 127.0.0.1",
+    "plan": "alchemy plan ./alchemy.run.ts --stage prod --profile pi-claude-code-site",
+    "deploy": "pnpm build && alchemy deploy ./alchemy.run.ts --stage prod --profile pi-claude-code-site"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@effect/platform-bun": "4.0.1",
+    "@effect/platform-node": "4.0.1",
+    "@fontsource/barlow": "5.3.0",
+    "@fontsource/rajdhani": "5.3.0",
+    "@tailwindcss/vite": "4.3.3",
+    "alchemy": "2.0.0-beta.81",
+    "astro": "7.3.5",
+    "daisyui": "5.7.47",
+    "effect": "4.0.1",
+    "tailwindcss": "4.3.3",
+    "typescript": "6.0.3"
+  }
+}
