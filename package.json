@@ -5,7 +5,7 @@
   "type": "module",
   "license": "MIT",
   "keywords": ["pi-package"],
-  "files": ["dist", "runtime", "vendor", "README.md", "LICENSE"],
+  "files": ["dist", "runtime/*.py", "vendor/**/*.py", "vendor/*.json", "vendor/*.md", "vendor/**/LICENSE*", "README.md", "LICENSE"],
   "pi": { "extensions": ["./dist/index.js"] },
   "scripts": {
     "check": "tsc --noEmit",
