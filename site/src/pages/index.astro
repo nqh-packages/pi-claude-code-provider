@@ -1,0 +1,180 @@
+---
+import "../styles/site.css";
+import provider from "../../../package.json";
+import provenance from "../../../vendor/source.json";
+
+const repository = "https://github.com/nqh-packages/pi-claude-code-provider";
+const offer = ["YOUR CLAUDE", "SUBSCRIPTION.", "DESTINATION PI."];
+const installCommands = `git clone https://github.com/nqh-packages/pi-claude-code-provider.git
+cd pi-claude-code-provider
+pnpm install --frozen-lockfile --ignore-scripts
+pnpm build
+pi install "$PWD"`;
+const piVersion = provider.peerDependencies["@earendil-works/pi-coding-agent"];
+const pnpmVersion = provider.packageManager.replace("pnpm@", "");
+---
+<!doctype html>
+<html lang="en" data-theme="concourse">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Your Claude subscription. Destination Pi. | Claude Code provider for Pi</title>
+    <meta name="description" content="An experimental, open-source provider for using your Claude subscription in Pi. Native Claude Code inference underneath. Pi's agent loop and tools in your hands." />
+    <meta name="theme-color" content="#171a1b" />
+    <link rel="canonical" href="https://pi-claude-code.ngoquochuy.com/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Your Claude subscription. Destination Pi." />
+    <meta property="og:description" content="Native Claude Code inference. Pi's agent loop and tools. An experimental, open-source provider." />
+    <meta property="og:url" content="https://pi-claude-code.ngoquochuy.com/" />
+  </head>
+  <body>
+    <!--
+    THESIS: Your Claude subscription can have Pi as its destination. The offer is the board, not a SaaS hero with a board inside it.
+    OWN-WORLD: Matte charcoal flaps, condensed white lettering, steel bezels, ruled columns and amber action controls. Restrained radii throughout.
+    STORY: Choose Pi's interface, understand that the official Claude Code CLI remains underneath, inspect the limits and build from source.
+    FIRST VIEWPORT: A full-width, three-line split-flap offer dominates. Plain-language explanation and one amber install action sit beneath it. Experimental limits follow immediately.
+    FORM: Concourse/departure-board card, user-selected challenger, seed273011f1.
+    FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+    -->
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="site-wrap">
+      <header class="site-header">
+        <a class="brand" href="/" aria-label="Claude Code provider for Pi, home">
+          <span class="brand-mark" aria-hidden="true"><span>P</span><span>I</span></span>
+          <span>Claude Code<br /><span class="brand-subtitle">provider for Pi</span></span>
+        </a>
+        <nav aria-label="Primary">
+          <a class="link link-hover" href="#install">Install</a>
+          <a class="link link-hover" href="#boundary">The boundary</a>
+          <a class="link link-hover" href="#credits">Credits</a>
+          <a class="nav-source link link-hover" href={repository}>GitHub <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12" /></svg></a>
+        </nav>
+      </header>
+      <main id="main" tabindex="-1">
+        <section class="departure-board">
+          <div class="board-face">
+            <h1 aria-label="Your Claude subscription. Destination Pi.">
+              {offer.map((line, row) => (
+                <span class:list={["flap-line", { "destination-line": row === 2 }]} aria-hidden="true">
+                  {Array.from(line.padEnd(15)).map((letter) => <span class:list={["flap", { "empty-flap": letter === " " }]}><span class="flap-letter">{letter === " " ? "\u00a0" : letter}</span></span>)}
+                </span>
+              ))}
+            </h1>
+            <div class="board-footer">
+              <p>Choose Pi for the way you work.<br />Use your Claude subscription with native Claude Code inference underneath. Pi keeps the agent loop and tools.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary install-action" href="#install">Install the provider <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 5 7 7-7 7" /></svg></a>
+                <a class="link readme-link" href={`${repository}#readme`}>Read the README <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12" /></svg></a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <aside class="travel-note" aria-label="Experimental and billing limits">
+          <span class="note-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m12 3 10 18H2L12 3Z" /><path d="M12 9v5m0 3v1" /></svg></span>
+          <p><strong>Experimental. Your plan's limits still apply.</strong> CLI updates can break this adapter. It cannot cap spending or prevent overages. Review the <a class="link" href="https://code.claude.com/docs/en/legal-and-compliance#authentication-and-credential-use">authentication policy</a> and your <a class="link" href="https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans">usage-credit settings</a> before use.</p>
+        </aside>
+
+        <section class="document-section install-section" id="install">
+          <div class="section-heading">
+            <h2>Build and install.</h2>
+            <p>A local checkout, installed in Pi.<br />You decide when to make the first request.</p>
+          </div>
+          <div class="setup-layout">
+            <div class="prerequisites">
+              <h3>Bring the official tools.</h3>
+              <p>Install the <a class="link" href="https://code.claude.com/docs/en/setup">official Claude Code CLI</a> and <a class="link" href="https://github.com/earendil-works/pi/tree/main/packages/coding-agent#installation">Pi</a> before building this provider.</p>
+              <dl class="requirements">
+                <div><dt>Pi host</dt><dd>{piVersion}</dd></div>
+                <div><dt>Node.js</dt><dd>{provider.engines.node}</dd></div>
+                <div><dt>pnpm</dt><dd>{pnpmVersion}</dd></div>
+                <div><dt>Python + CLI</dt><dd><a class="link" href={`${repository}/blob/main/.github/workflows/acceptance.yml`}>Tested prerequisites <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12" /></svg></a></dd></div>
+              </dl>
+              <p class="small-copy">Package requirements come from <a class="link" href={`${repository}/blob/main/package.json`}>the provider manifest</a>. Other versions and operating systems need their own verification.</p>
+            </div>
+            <ol class="setup-steps">
+              <li>
+                <div class="step-heading"><span class="step-number" aria-hidden="true">1</span><h3>Check your native sign-in.</h3></div>
+                <p>The CLI handles authentication. This provider does not ask for a token.</p>
+                <pre class="small-code" tabindex="0" aria-label="Check Claude Code sign-in"><code>claude auth status</code></pre>
+                <p class="step-note">If signed out, run <code>claude auth login</code> in your terminal.</p>
+              </li>
+              <li>
+                <div class="step-heading"><span class="step-number" aria-hidden="true">2</span><h3>Build the provider. Install the checkout.</h3></div>
+                <p>Pi loads the generated bundle, so build before installing and after each update.</p>
+                <div class="code-panel">
+                  <div class="code-toolbar"><span>Run in your terminal</span><div class="copy-controls"><button class="btn btn-sm" id="select-code" type="button" hidden>Select code</button><button class="btn btn-sm" id="copy-code" type="button" hidden>Copy commands <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="1" /><path d="M16 8V3H3v13h5" /></svg></button></div></div>
+                  <pre id="install-code" tabindex="0" aria-label="Build and install the provider commands" aria-describedby="copy-help"><code>{installCommands}</code></pre>
+                  <div class="code-footnote"><p id="copy-help">Read the commands before running them. You can also select the text and copy it manually.</p><p id="copy-status" role="status" aria-live="polite" aria-atomic="true"></p></div>
+                </div>
+              </li>
+              <li>
+                <div class="step-heading"><span class="step-number" aria-hidden="true">3</span><h3>Choose Claude Code in Pi.</h3></div>
+                <p>Open Pi, use <code>/claude-code-status</code> to check the connection, then <code>/model</code> to choose an available <code>claude-code</code> route. Installation does not send an inference request.</p>
+                <details class="collapse collapse-arrow setup-disclosure">
+                  <summary class="collapse-title">Updating or removing the provider</summary>
+                  <div class="collapse-content"><p>After updating your checkout, run <code>pnpm build</code> again. Pi uses that checkout directly. To remove it, run <code>pi remove /absolute/path/to/pi-claude-code-provider</code>.</p><p>For one-invocation use, configuration and verification, <a class="link" href={`${repository}#build-and-try-locally`}>read the setup guide</a>.</p></div>
+                </details>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="document-section boundary-section" id="boundary">
+          <div class="section-heading">
+            <h2>Pi drives.<br />Claude Code runs underneath.</h2>
+            <p>Your choice of interface.<br />A clear division of responsibility.</p>
+          </div>
+          <div class="ownership-board">
+            <div class="ownership-column">
+              <h3>Pi</h3>
+              <p class="ownership-role">Agent loop + tool execution</p>
+              <p>Your tools, approvals, transcript and compaction stay with Pi. The native CLI cannot execute Pi's tools.</p>
+            </div>
+            <div class="connection-column" aria-hidden="true"><span>Prompt + history</span><svg viewBox="0 0 100 24" fill="none"><path d="M1 12h96m-8-8 8 8-8 8" /></svg><span>Response + tool calls</span><svg viewBox="0 0 100 24" fill="none"><path d="M99 12H3m8-8-8 8 8 8" /></svg><span class="connection-label">This provider</span></div>
+            <div class="ownership-column">
+              <h3>Claude Code</h3>
+              <p class="ownership-role">Native authentication + inference</p>
+              <p>The official CLI supplies and refreshes credentials. Prompts, images and tool results go to Claude.</p>
+            </div>
+          </div>
+          <div class="boundary-notes">
+            <p><strong>A complete response before tool execution.</strong> The transport validates whole tool batches. Refused or truncated responses cannot execute tools.</p>
+            <p><strong>CLI compatibility is a moving boundary.</strong> Native replay and model discovery rely on pinned implementation details. CLI updates can break this adapter.</p>
+          </div>
+          <details class="collapse collapse-arrow boundary-disclosure">
+            <summary class="collapse-title">Account policy, billing and permissions</summary>
+            <div class="collapse-content">
+              <p>This is an experimental, independent project, not an Anthropic endorsement or an account-policy guarantee. Using the official CLI does not establish blanket permission for third-party subscription use. Review <a class="link" href="https://code.claude.com/docs/en/legal-and-compliance#authentication-and-credential-use">Anthropic's authentication policy</a>.</p>
+              <p>Your account entitlements, plan limits and extra-usage settings remain Anthropic's. Enabled <a class="link" href="https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans">usage credits</a> can incur separate charges. Pi's cost figures are estimates, not subscription charges. This provider cannot cap spending or prevent overages.</p>
+              <p>Workspace isolation is not a sandbox. Pi tools run under Pi's permissions. Read the <a class="link" href={`${repository}#boundaries`}>runtime boundaries</a> before use.</p>
+            </div>
+          </details>
+        </section>
+
+        <section class="document-section credits-section" id="credits">
+          <div class="section-heading">
+            <h2>Built on shared work.</h2>
+            <a class="link section-source" href={`${repository}/blob/main/vendor/source.json`}>Inspect the provenance <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12" /></svg></a>
+          </div>
+          <div class="credit-row">
+            <h3>Hermes</h3>
+            <div><p>Inspired by Nous Research's <a class="link" href={provenance.repository}>Hermes Claude subscription plugin</a>. This provider reuses its MIT-licensed Python transport, plus schema-sanitizer and reasoning-effort helpers from <a class="link" href={provenance.helpers.repository}>Hermes core</a>.</p><div class="notice-links"><a class="link" href={`${repository}/blob/main/vendor/transport/LICENSE`}>Transport MIT notice</a><a class="link" href={`${repository}/blob/main/vendor/LICENSE.hermes-core`}>Hermes core MIT notice</a></div></div>
+          </div>
+          <div class="credit-row">
+            <h3>Pi</h3>
+            <div><p>The build inlines Pi's pinned <a class="link" href={`${provenance.bundledHelper.repository}/blob/${provenance.bundledHelper.revision}/${provenance.bundledHelper.source}`}><code>transformMessages</code> transcript normalization helper</a>. The host SDK modules remain external.</p><div class="notice-links"><a class="link" href={`${repository}/blob/main/vendor/LICENSE.pi-ai`}>Pi helper MIT notice</a><a class="link" href={`${repository}/blob/main/vendor/PATCHES.md`}>Local transport changes</a></div></div>
+          </div>
+          <p class="credits-close">The source is open. The limits are part of it.<br /><a class="link" href={`${repository}#verify`}>Read what the verification actually covers.</a></p>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <span>Claude Code provider for Pi</span>
+        <div><a class="link link-hover" href={repository}>Source on GitHub</a><a class="link link-hover" href={`${repository}/blob/main/LICENSE`}>MIT license</a><a class="link link-hover" href="/font-licenses.txt">Font licenses</a></div>
+      </footer>
+    </div>
+    <script>
+      import "../scripts/copy-code";
+    </script>
+  </body>
+</html>
