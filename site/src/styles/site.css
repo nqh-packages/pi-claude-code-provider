@@ -88,6 +88,7 @@ h1 { margin: 0; display: grid; gap: 6px; font: 600 clamp(3rem, 6.7vw, 6rem)/1.24
 .board-footer p::first-line { color: var(--ink); font-weight: 500; }
 .hero-actions { display: flex; flex-direction: column; align-items: stretch; gap: 0.85rem; }
 .btn { font: 600 1.3rem/1 var(--display); min-height: 3.3rem; padding-inline: 1.2rem; border-radius: 3px; }
+.btn-primary { color: var(--color-primary-content); }
 .install-action { display: flex; justify-content: space-between; }
 .readme-link { display: flex; align-items: center; justify-content: center; gap: 0.7rem; font: 600 1.1rem/1.5 var(--display); padding-block: 0.3rem; }
 .travel-note { display: flex; align-items: flex-start; gap: 1rem; padding: 1.5rem 1.75rem; margin-top: 1rem; border-block: 1px solid var(--rule); background: #1d2223; }
