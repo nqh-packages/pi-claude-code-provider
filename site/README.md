@@ -37,7 +37,7 @@ Build and inspect the plan before publishing:
 ```sh
 pnpm build
 pnpm plan
-pnpm deploy
+pnpm run deploy
 ```
 
 The assets-only Worker serves `dist/`. Its custom domain manages DNS and TLS; there is no separate DNS script or Astro server adapter. Workers.dev and version-preview URLs are disabled. Existing DNS records or another Worker's domain attachment must be investigated rather than adopted or overwritten.
